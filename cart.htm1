@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Wrapped | Cart</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .cart-item {
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 5px;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -21,6 +31,8 @@
       <h2>Your Cart</h2>
       <div id="cart-items"></div>
       <h3 id="total-price"></h3>
+      <button onclick="clearCart()">🗑️ Clear Cart</button>
+      <button onclick="checkout()">💳 Checkout</button>
     </section>
   </main>
 
@@ -32,12 +44,18 @@
     const cartItemsContainer = document.getElementById("cart-items");
     const totalPriceElement = document.getElementById("total-price");
 
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    if (cart.length === 0) {
-      cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
-    } else {
+    function renderCart() {
+      cartItemsContainer.innerHTML = "";
       let total = 0;
+
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+        totalPriceElement.textContent = "";
+        return;
+      }
+
       cart.forEach((item, index) => {
         total += item.price;
 
@@ -45,12 +63,37 @@
         div.classList.add("cart-item");
         div.innerHTML = `
           <p><strong>${item.name}</strong> - $${item.price}</p>
+          <button onclick="removeItem(${index})">Remove</button>
         `;
         cartItemsContainer.appendChild(div);
       });
 
       totalPriceElement.textContent = "Total: $" + total;
     }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+    }
+
+    function clearCart() {
+      localStorage.removeItem("cart");
+      cart = [];
+      renderCart();
+    }
+
+    function checkout() {
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+
+      alert("Thank you for your purchase! (Demo checkout)");
+      clearCart();
+    }
+
+    renderCart();
   </script>
 </body>
 </html>
