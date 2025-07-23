@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wrapped | المنتجات</title>
+  <title>Wrapped | Products</title>
   <link rel="stylesheet" href="style.css" />
   <script>
     function addToCart(name, price) {
       const cart = JSON.parse(localStorage.getItem("cart")) || [];
-      cart.push({ name, price: parseFloat(price) }); // تأكدنا إن السعر رقم
+      cart.push({ name, price });
       localStorage.setItem("cart", JSON.stringify(cart));
-      alert(`${name} تمت إضافته إلى السلة 🛒`);
+      alert("تم إضافة المنتج للسلة ✅");
     }
   </script>
 </head>
@@ -18,9 +18,9 @@
   <header>
     <h1>Wrapped</h1>
     <nav>
-      <a href="index.html">الرئيسية</a>
-      <a href="products.html">المنتجات</a>
-      <a href="cart.html">السلة</a>
+      <a href="index.html">Home</a>
+      <a href="products.html">Shop</a>
+      <a href="cart.html">Cart</a>
     </nav>
   </header>
 
@@ -32,21 +32,21 @@
         <img src="assets/IMG_6083.jpeg" alt="White Shirt" width="200">
         <h3>تيشيرت أبيض</h3>
         <p>500 ج.م</p>
-        <button onclick="addToCart('تيشيرت أبيض', 500)">أضف إلى السلة</button>
+        <button onclick="addToCart('تيشيرت أبيض', 500)">Add to Cart</button>
       </div>
 
       <div class="product">
         <img src="assets/IMG_6084.jpeg" alt="Black Shirt" width="200">
         <h3>تيشيرت أسود</h3>
         <p>480 ج.م</p>
-        <button onclick="addToCart('تيشيرت أسود', 480)">أضف إلى السلة</button>
+        <button onclick="addToCart('تيشيرت أسود', 480)">Add to Cart</button>
       </div>
 
       <div class="product">
         <img src="assets/IMG_6085.jpeg" alt="Blue Shirt" width="200">
         <h3>تيشيرت أزرق</h3>
         <p>520 ج.م</p>
-        <button onclick="addToCart('تيشيرت أزرق', 520)">أضف إلى السلة</button>
+        <button onclick="addToCart('تيشيرت أزرق', 520)">Add to Cart</button>
       </div>
 
     </section>
