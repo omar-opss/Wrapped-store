@@ -57,3 +57,4 @@ function addToCart(name, price) {
   localStorage.setItem("cart", JSON.stringify(cart));
   alert(`${name} تمت إضافته إلى السلة 🛒`);
 }
+<script src="script.js"></script>
