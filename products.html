@@ -5,55 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Wrapped | Products</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .product {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      max-width: 300px;
+    }
+    .product button {
+      background-color: #000;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .product button:hover {
+      background-color: #444;
+    }
+  </style>
   <script>
     function addToCart(name, price) {
       const cart = JSON.parse(localStorage.getItem("cart")) || [];
       cart.push({ name, price });
       localStorage.setItem("cart", JSON.stringify(cart));
-      alert("تم إضافة المنتج للسلة ✅");
+      alert("Product added to cart!");
     }
   </script>
 </head>
 <body>
-  <header>
-    <h1>Wrapped</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html">Shop</a>
-      <a href="cart.html">Cart</a>
-    </nav>
-  </header>
+  <h1>Wrapped Products</h1>
 
-  <main>
-    <section>
-      <h2>المنتجات</h2>
+  <div class="product">
+    <h3>T-shirt 1</h3>
+    <p>Price: 150 EGP</p>
+    <button onclick="addToCart('T-shirt 1', 150)">Add to Cart</button>
+  </div>
 
-      <div class="product">
-        <img src="assets/IMG_6083.jpeg" alt="White Shirt" width="200">
-        <h3>تيشيرت أبيض</h3>
-        <p>500 ج.م</p>
-        <button onclick="addToCart('تيشيرت أبيض', 500)">Add to Cart</button>
-      </div>
+  <div class="product">
+    <h3>T-shirt 2</h3>
+    <p>Price: 200 EGP</p>
+    <button onclick="addToCart('T-shirt 2', 200)">Add to Cart</button>
+  </div>
 
-      <div class="product">
-        <img src="assets/IMG_6084.jpeg" alt="Black Shirt" width="200">
-        <h3>تيشيرت أسود</h3>
-        <p>480 ج.م</p>
-        <button onclick="addToCart('تيشيرت أسود', 480)">Add to Cart</button>
-      </div>
+  <div class="product">
+    <h3>T-shirt 3</h3>
+    <p>Price: 180 EGP</p>
+    <button onclick="addToCart('T-shirt 3', 180)">Add to Cart</button>
+  </div>
 
-      <div class="product">
-        <img src="assets/IMG_6085.jpeg" alt="Blue Shirt" width="200">
-        <h3>تيشيرت أزرق</h3>
-        <p>520 ج.م</p>
-        <button onclick="addToCart('تيشيرت أزرق', 520)">Add to Cart</button>
-      </div>
-
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Wrapped</p>
-  </footer>
 </body>
 </html>
