@@ -1,4 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wrapped | Checkout</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 1em;
+    }
+    nav {
+      background-color: black;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    form {
+      max-width: 500px;
+      margin: 40px auto;
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px #ccc;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+    .payment-section {
+      margin-top: 15px;
+      display: none;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      background-color: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
 <body>
+
+  <!-- ✅ Navbar -->
   <nav>
     <a href="index.html">Home</a>
     <a href="products.html">Shop</a>
@@ -6,9 +66,44 @@
     <a href="checkout.html">Checkout</a>
   </nav>
 
-  <h1>Checkout</h1>
+  <h1 style="text-align: center;">Checkout</h1>
+
   <form id="checkout-form">
-    <!-- كل محتوى الفورم زي ما هو -->
+    <label>Full Name</label>
+    <input type="text" required />
+
+    <label>Phone Number</label>
+    <input type="tel" required />
+
+    <label>Address</label>
+    <input type="text" required />
+
+    <label>Payment Method</label>
+    <select id="payment-method" required>
+      <option value="">Select</option>
+      <option value="vodafone">Vodafone Cash</option>
+      <option value="visa">Visa</option>
+    </select>
+
+    <!-- Vodafone Section -->
+    <div id="vodafone-section" class="payment-section">
+      <label>Vodafone Number</label>
+      <input type="tel" placeholder="01xxxxxxxxx" />
+    </div>
+
+    <!-- Visa Section -->
+    <div id="visa-section" class="payment-section">
+      <label>Card Number</label>
+      <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx" />
+
+      <label>Expiry Date</label>
+      <input type="text" placeholder="MM/YY" />
+
+      <label>CVV</label>
+      <input type="text" placeholder="3 digits" />
+    </div>
+
+    <button type="submit">Confirm Order</button>
   </form>
 
   <script>
@@ -35,3 +130,4 @@
     });
   </script>
 </body>
+</html>
