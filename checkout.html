@@ -6,78 +6,21 @@
   <title>Wrapped | Checkout</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav {
-      background-color: black;
-      padding: 15px 0;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 20px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    h1 {
-      text-align: center;
-      margin: 30px 0 10px;
-    }
-
-    form {
-      max-width: 500px;
-      margin: auto;
-      background: #f9f9f9;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 5px #ccc;
-    }
-
-    label {
-      display: block;
-      margin-top: 10px;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      box-sizing: border-box;
-    }
-
-    .payment-section {
-      margin-top: 15px;
-      display: none;
-    }
-
-    button {
-      margin-top: 20px;
-      padding: 12px;
-      width: 100%;
-      background-color: black;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #333;
-    }
+    /* التنسيقات كما وعدت */
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    nav { background-color: black; padding: 15px 0; text-align: center; }
+    nav a { color: white; margin: 0 20px; text-decoration: none; font-weight: bold; font-size: 16px; }
+    nav a:hover { text-decoration: underline; }
+    h1 { text-align: center; margin: 30px 0 10px; }
+    form { max-width: 500px; margin: auto; background: #f9f9f9; padding: 20px; border-radius: 8px; box-shadow: 0 0 5px #ccc; }
+    label { display: block; margin-top: 10px; }
+    input, select { width: 100%; padding: 10px; margin-top: 5px; box-sizing: border-box; }
+    .payment-section { margin-top: 15px; display: none; }
+    button { margin-top: 20px; padding: 12px; width: 100%; background-color: black; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; }
+    button:hover { background-color: #333; }
   </style>
 </head>
 <body>
-
   <nav>
     <a href="/Wrapped-store/index.html">Home</a>
     <a href="/Wrapped-store/products.html">Shop</a>
@@ -88,15 +31,9 @@
   <h1>Checkout</h1>
 
   <form id="checkout-form">
-    <label>Full Name</label>
-    <input type="text" required />
-
-    <label>Phone Number</label>
-    <input type="tel" required />
-
-    <label>Address</label>
-    <input type="text" required />
-
+    <label>Full Name</label><input type="text" required />
+    <label>Phone Number</label><input type="tel" required />
+    <label>Address</label><input type="text" required />
     <label>Payment Method</label>
     <select id="payment-method" required>
       <option value="">Select</option>
@@ -112,36 +49,29 @@
     <div id="visa-section" class="payment-section">
       <label>Card Number</label>
       <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx" />
-      <label>Expiry Date</label>
-      <input type="text" placeholder="MM/YY" />
-      <label>CVV</label>
-      <input type="text" placeholder="3 digits" />
+      <label>Expiry Date</label><input type="text" placeholder="MM/YY" />
+      <label>CVV</label><input type="text" placeholder="3 digits" />
     </div>
 
     <button type="submit">Confirm Order</button>
   </form>
 
   <script>
-    const paymentMethod = document.getElementById("payment-method");
-    const vodafoneSection = document.getElementById("vodafone-section");
-    const visaSection = document.getElementById("visa-section");
+    const method = document.getElementById("payment-method");
+    const vod = document.getElementById("vodafone-section");
+    const vis = document.getElementById("visa-section");
 
-    paymentMethod.addEventListener("change", () => {
-      vodafoneSection.style.display = "none";
-      visaSection.style.display = "none";
-
-      if (paymentMethod.value === "vodafone") {
-        vodafoneSection.style.display = "block";
-      } else if (paymentMethod.value === "visa") {
-        visaSection.style.display = "block";
-      }
+    method.addEventListener("change", () => {
+      vod.style.display = vis.style.display = "none";
+      if (method.value === "vodafone") vod.style.display = "block";
+      if (method.value === "visa") vis.style.display = "block";
     });
 
-    document.getElementById("checkout-form").addEventListener("submit", function(e) {
+    document.getElementById("checkout-form").addEventListener("submit", e => {
       e.preventDefault();
       alert("✅ Order placed successfully! (This is a test checkout)");
       localStorage.removeItem("cart");
-      window.location.href = "index.html";
+      window.location.href = "/Wrapped-store/index.html";
     });
   </script>
 </body>
