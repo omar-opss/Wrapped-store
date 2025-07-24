@@ -41,7 +41,6 @@
   </footer>
 
   <script>
-    // عرض المنتجات من localStorage
     const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
     const cartContainer = document.getElementById("cart-items");
     const totalPriceEl = document.getElementById("total-price");
@@ -52,15 +51,14 @@
       const div = document.createElement("div");
       div.className = "cart-item";
       div.innerHTML = `
-        <h3>${item.name}</h3>
-     <p><strong>${item.name}</strong> - EGP ${item.price}</p> 
+        <p><strong>${item.name}</strong> - EGP ${item.price}</p> 
         <button onclick="removeItem(${index})">Remove</button>
       `;
       cartContainer.appendChild(div);
       total += item.price;
     });
 
-    totalPrice.innerText = "Total: EGP " + total;
+    totalPriceEl.innerText = "Total: EGP " + total;
 
     function removeItem(index) {
       cartItems.splice(index, 1);
