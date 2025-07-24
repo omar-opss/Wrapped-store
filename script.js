@@ -57,4 +57,37 @@ function addToCart(name, price) {
   localStorage.setItem("cart", JSON.stringify(cart));
   alert(`${name} تمت إضافته إلى السلة 🛒`);
 }
+const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+const cartContainer = document.getElementById("cart-items");
+const totalPriceEl = document.getElementById("total-price");
+
+let total = 0;
+
+cartItems.forEach((item, index) => {
+  const div = document.createElement("div");
+  div.className = "cart-item";
+  div.innerHTML = `
+    <p><strong>${item.name}</strong> - EGP ${item.price}</p> 
+    <button onclick="removeItem(${index})">Remove</button>
+  `;
+  cartContainer.appendChild(div);
+  total += item.price;
+});
+
+totalPriceEl.innerText = "Total: EGP " + total;
+
+function removeItem(index) {
+  cartItems.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cartItems));
+  location.reload();
+}
+
+function clearCart() {
+  localStorage.removeItem("cart");
+  location.reload();
+}
+
+function checkout() {
+  alert("This is a test checkout. (Fake payment)");
+}
 <script src="script.js"></script>
