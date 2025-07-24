@@ -19,13 +19,13 @@ function renderCart() {
     const div = document.createElement("div");
     div.classList.add("cart-item");
     div.innerHTML = `
-      <p><strong>${item.name}</strong> - ${item.price} ج.م</p>
+      <p><strong>${item.name}</strong> - EGP ${item.price}</p>
       <button onclick="removeItem(${index})">Remove</button>
     `;
     cartItemsContainer.appendChild(div);
   });
 
-  totalPriceElement.textContent = "الإجمالي: " + total + " ج.م";
+  totalPrice.innerText = "Total: EGP " + total;
 }
 
 function removeItem(index) {
