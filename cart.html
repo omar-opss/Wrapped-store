@@ -53,14 +53,14 @@
       div.className = "cart-item";
       div.innerHTML = `
         <h3>${item.name}</h3>
-        <p>Price: ${item.price}ج.م</p>
+     <p><strong>${item.name}</strong> - EGP ${item.price}</p> 
         <button onclick="removeItem(${index})">Remove</button>
       `;
       cartContainer.appendChild(div);
       total += item.price;
     });
 
-    totalPriceEl.innerText = "Total: $" + total;
+    totalPrice.innerText = "Total: EGP " + total;
 
     function removeItem(index) {
       cartItems.splice(index, 1);
