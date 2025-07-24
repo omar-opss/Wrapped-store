@@ -12,7 +12,6 @@
       padding: 0;
     }
 
-    /* ✅ Navbar Styling */
     nav {
       background-color: black;
       padding: 15px 0;
@@ -79,13 +78,12 @@
 </head>
 <body>
 
-  <!-- ✅ Navbar -->
   <nav>
-  <a href="/Wrapped-store/index.html">Home</a>
-  <a href="/Wrapped-store/products.html">Shop</a>
-  <a href="/Wrapped-store/cart.html">Cart</a>
-  <a href="/Wrapped-store/checkout.html">Checkout</a>
-</nav>
+    <a href="/Wrapped-store/index.html">Home</a>
+    <a href="/Wrapped-store/products.html">Shop</a>
+    <a href="/Wrapped-store/cart.html">Cart</a>
+    <a href="/Wrapped-store/checkout.html">Checkout</a>
+  </nav>
 
   <h1>Checkout</h1>
 
@@ -106,20 +104,16 @@
       <option value="visa">Visa</option>
     </select>
 
-    <!-- Vodafone Section -->
     <div id="vodafone-section" class="payment-section">
       <label>Vodafone Number</label>
       <input type="tel" placeholder="01xxxxxxxxx" />
     </div>
 
-    <!-- Visa Section -->
     <div id="visa-section" class="payment-section">
       <label>Card Number</label>
       <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx" />
-
       <label>Expiry Date</label>
       <input type="text" placeholder="MM/YY" />
-
       <label>CVV</label>
       <input type="text" placeholder="3 digits" />
     </div>
@@ -148,11 +142,6 @@
       alert("✅ Order placed successfully! (This is a test checkout)");
       localStorage.removeItem("cart");
       window.location.href = "index.html";
-    });
-  </script>
-</body>
-</html>
-window.location.href = "index.html";
     });
   </script>
 </body>
