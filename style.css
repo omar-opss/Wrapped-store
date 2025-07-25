@@ -72,3 +72,48 @@ h1 {
 .product button:hover {
   background-color: #e83b50;
 }
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.payment-box {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.payment-box h2 {
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.payment-box input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+}
+
+.payment-box button {
+  padding: 12px;
+  background-color: #ff4c60;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.payment-box button:hover {
+  background-color: #e83b50;
+}
