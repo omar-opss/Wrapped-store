@@ -5,90 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Wrapped | Home</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Wrapped</h1>
+
+  <div class="top-bar">FREE Shipping Over 200 EGP!</div>
+  <header class="navbar">
+    <div class="logo">Wrapped</div>
     <nav>
       <a href="index.html">Home</a>
-      <a href="products.html">Shop</a>
-      <a href="cart.html">Cart</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">🛒 Cart</a>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <h2 ="welcome-text">Welcome to Wrapped</h2>
-      <p ="tagline">Your favorite T-shirt store</p>
-      <a href="products.html" class="btn">Shop Now</a>
-    </section>
-  </main>
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Wrap Yourself in Style</h1>
+      <p>Discover our exclusive collection of T-shirts.</p>
+      <a href="products.html" class="btn-primary">Browse Products</a>
+    </div>
+  </section>
 
-  <footer>
-    <p>&copy; 2025 Wrapped</p>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wrapped | Products</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <h1>Wrapped</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html">Shop</a>
-      <a href="cart.html">Cart</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="products">
-      <h2>Our T-Shirts</h2>
-      <div class="product-list">
-        <div class="product">
-          <img src="assets/WhatsApp Image 2025-07-23 at 4.50.07 PM (3).jpeg" alt="T-Shirassets/t 1">
-          <h3>Classic White</h3>
-          <p>500EGP</p>
-          <button onclick="addToCart('Classic White', 500)">Add to Cart</button>
-        </div>
-
-        <div class="product">
-          <img src="assets/IMG_6084.jpeg" alt="T-Shirt 2">
-          <h3>Black Street</h3>
-          <p>500EGP</p>
-          <button onclick="addToCart('Black Street', 500)">Add to Cart</button>
-        </div>
-
-        <div class="product">
-          <img src="assets/IMG_6085.jpeg" alt="T-Shirt 3">
-          <h3>Urban Blue</h3>
-          <p>500EGP</p>
-          <button onclick="addToCart('Urban Blue', 500)">Add to Cart</button>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Wrapped</p>
-  </footer>
-
-  <script>
-    function addToCart(name, price) {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.push({ name, price });
-      localStorage.setItem('cart', JSON.stringify(cart));
-      alert(name + " added to cart!");
-    }
-  </script>
-</body>
-</html>
-<script src="script.js"></script>
