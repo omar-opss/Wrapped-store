@@ -8,32 +8,42 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <div class="top-bar">FREE Shipping Over 200 EGP!</div>
+  <header class="navbar">
+    <div class="logo">Wrapped</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">🛒 Cart</a>
+    </nav>
+  </header>
+
   <h1>Choose Payment Method</h1>
 
   <div class="payment-methods">
-
     <div class="payment-box">
       <h2>💳 Pay with Visa</h2>
-      <input type="text" placeholder="Card Number" required />
-      <input type="text" placeholder="Name on Card" required />
-      <input type="text" placeholder="MM/YY" required />
-      <input type="text" placeholder="CVV" required />
+      <input type="text" placeholder="Card Number" />
+      <input type="text" placeholder="Name on Card" />
+      <input type="text" placeholder="MM/YY" />
+      <input type="text" placeholder="CVV" />
       <button onclick="payNow()">Pay Now</button>
     </div>
 
     <div class="payment-box">
       <h2>📲 Pay with Vodafone Cash</h2>
-      <input type="text" placeholder="Vodafone Number" required />
+      <input type="text" placeholder="Vodafone Number" />
       <button onclick="payNow()">Pay Now</button>
     </div>
-
   </div>
 
   <script>
     function payNow() {
-      localStorage.removeItem("cart"); // تفريغ السلة بعد الدفع
+      localStorage.removeItem("cart");
       window.location.href = "thankyou.html";
     }
   </script>
+
 </body>
 </html>
