@@ -1,35 +1,57 @@
-const cart = JSON.parse(localStorage.getItem("cart")) || [];
-const cartItemsDiv = document.getElementById("cart-items");
-const totalSpan = document.getElementById("total");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wrapped | Products</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
 
-function renderCart() {
-  cartItemsDiv.innerHTML = "";
-  let total = 0;
+  <div class="top-bar">FREE Shipping Over 200 EGP!</div>
+  <header class="navbar">
+    <div class="logo">Wrapped</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">🛒 Cart</a>
+    </nav>
+  </header>
 
-  cart.forEach((item, index) => {
-    total += item.price;
+  <h1>Wrapped Products</h1>
 
-    const itemDiv = document.createElement("div");
-    itemDiv.classList.add("cart-item");
-    itemDiv.innerHTML = `
-      <h3>${item.name}</h3>
-      <p>${item.price} EGP</p>
-      <button onclick="removeItem(${index})">Remove</button>
-    `;
-    cartItemsDiv.appendChild(itemDiv);
-  });
+  <div class="products">
+    <div class="product">
+      <img src="images/tshirt1.jpg" alt="T-shirt 1">
+      <h2>T-shirt 1</h2>
+      <p>150 EGP</p>
+      <button onclick="addToCart('T-shirt 1', 150)">Add to Cart</button>
+    </div>
 
-  totalSpan.textContent = total.toFixed(2) + " EGP";
-}
+    <div class="product">
+      <img src="images/tshirt2.jpg" alt="T-shirt 2">
+      <h2>T-shirt 2</h2>
+      <p>200 EGP</p>
+      <button onclick="addToCart('T-shirt 2', 200)">Add to Cart</button>
+    </div>
 
-function removeItem(index) {
-  cart.splice(index, 1);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  renderCart();
-}
+    <div class="product">
+      <img src="images/tshirt3.jpg" alt="T-shirt 3">
+      <h2>T-shirt 3</h2>
+      <p>180 EGP</p>
+      <button onclick="addToCart('T-shirt 3', 180)">Add to Cart</button>
+    </div>
+  </div>
 
-function checkout() {
-  window.location.href = "payment.html";
-}
+  <script>
+    function addToCart(name, price) {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ name, price });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(${name} added to cart!);
+    }
+  </script>
 
-renderCart();
+</body>
+</html>
