@@ -5,60 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Wrapped | Products</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-    .product {
-      border: 1px solid #ccc;
-      padding: 15px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      max-width: 300px;
-    }
-    .product button {
-      background-color: #000;
-      color: #fff;
-      padding: 10px;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    .product button:hover {
-      background-color: #444;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1>Wrapped Products</h1>
+
+  <div class="products">
+    <div class="product">
+      <img src="images/tshirt1.jpg" alt="T-shirt 1">
+      <h2>T-shirt 1</h2>
+      <p>150 EGP</p>
+      <button onclick="addToCart('T-shirt 1', 150)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="images/tshirt2.jpg" alt="T-shirt 2">
+      <h2>T-shirt 2</h2>
+      <p>200 EGP</p>
+      <button onclick="addToCart('T-shirt 2', 200)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="images/tshirt3.jpg" alt="T-shirt 3">
+      <h2>T-shirt 3</h2>
+      <p>180 EGP</p>
+      <button onclick="addToCart('T-shirt 3', 180)">Add to Cart</button>
+    </div>
+  </div>
+
   <script>
     function addToCart(name, price) {
       const cart = JSON.parse(localStorage.getItem("cart")) || [];
       cart.push({ name, price });
       localStorage.setItem("cart", JSON.stringify(cart));
-      alert("Product added to cart!");
+      alert(${name} added to cart!);
     }
   </script>
-</head>
-<body>
-  <h1>Wrapped Products</h1>
-
-  <div class="product">
-    <h3>T-shirt 1</h3>
-    <p>Price: 150 EGP</p>
-    <button onclick="addToCart('T-shirt 1', 150)">Add to Cart</button>
-  </div>
-
-  <div class="product">
-    <h3>T-shirt 2</h3>
-    <p>Price: 200 EGP</p>
-    <button onclick="addToCart('T-shirt 2', 200)">Add to Cart</button>
-  </div>
-
-  <div class="product">
-    <h3>T-shirt 3</h3>
-    <p>Price: 180 EGP</p>
-    <button onclick="addToCart('T-shirt 3', 180)">Add to Cart</button>
-  </div>
-
 </body>
 </html>
-<script src="script.js"></script>
